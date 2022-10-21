@@ -1,41 +1,109 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(a=0,b=0) {
+      if (a>b){
+        return a
+      }else{
+        return b
+      }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(aWords) {
+  if(aWords.length > 0){
+  const maior = aWords.reduce((anterior, atual) => 
+      anterior.length >= atual.length?
+      anterior: atual)
+  return maior
+}else{
+  return null
+}
+}
+
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(aNumbers) {
+  if(aNumbers.length > 0){
+    const soma = aNumbers.reduce((anterior, atual) => 
+        anterior + atual)
+    return soma
+  }else{
+    return 0
+  }
 
-
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+//falta um item
+function sum(aNumbers) {
+  const logica = aNumbers.map(nome => nome.length !== undefined &&
+    nome != 0? nome.length: nome)
+    
+  if(logica.length != false){
+      const soma = logica.map(nome => typeof nome !== false?
+      nome : 0).reduce((anterior, atual)=> anterior+atual)
+      return soma 
+ }
 
-
+ else if (aNumbers.length == 0){
+    return 0}
+  }
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(aNumbers) {
+  let erro = ''
+  if(aNumbers.length !== 0){
+    const numeros = aNumbers.map(numero => typeof numero == 'number'? numero: erro = numero)
+    const soma = numeros.reduce((anterior, atual)=> (anterior+atual)) 
+
+      return soma / aNumbers.length }
+    else if (aNumbers.length == 0){
+
+      return null}
+
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(aRrays) { 
+  let erro = ''
+  if(aRrays.length !== 0){
+    const palavras = aRrays.map(palavra => typeof palavra == 'string'? palavra.length: erro = palavra)
+    const soma = palavras.reduce((anterior, atual)=> (anterior+atual)) 
+
+      return soma / aRrays.length }
+    else if (aRrays.length == 0){
+
+      return null}
+
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(aNumbers) {
+
+  if(aNumbers.length !== 0){
+    const logica = aNumbers.map(nome => nome.length !== undefined &&
+    nome != 0? nome.length: nome)
+    const soma = logica.map(nome => typeof nome !== false?
+    nome : 0).reduce((anterior, atual)=> anterior+atual) 
+
+      return soma / aNumbers.length}
+    else if (aNumbers.length == 0){
+
+      return null}
+
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +120,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(aRrays) {
+  if(aRrays.length !== 0){
+    let repetidos = []
+    let logica = aRrays.map(valor => repetidos.includes(valor)? valor: repetidos.push(valor))
+
+      return repetidos}
+    else if (aRrays.length == 0){
+
+      return null}
+
+
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(aRrays, palavra) {
+  if(aRrays.includes(palavra)){
+      return true}
+    else if (aRrays.length == 0){
+
+      return null}
+    else{
+      return false
+    }
+
+}
 
 
 
@@ -78,9 +167,33 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(aRrays, palavra) {
 
+  if(aRrays.length != 0){
+    let repetidos = []
+    let logica = aRrays.map(valor => palavra != valor? 0:repetidos.push(valor) )
+    //console.log(repetidos.length)
+    switch(repetidos.length){
 
+    case 1:
+        return 1
+        break
+
+    case 5:
+        return 5
+        break
+
+    case 0:
+        return 0
+        breeak
+    default:
+        return repetidos.length
+    }
+}else{
+    return 0
+}
+
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,7 +219,12 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(aMatrix) {
+  const soma = aMatrix.reduce((anterior, atual)=> (anterior*atual))
+  if(soma == 1){
+    return soma
+  } 
+}
 
 
 
